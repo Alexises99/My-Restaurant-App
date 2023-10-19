@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string
+  content: string
+}
+
+const { title, content } = Astro.props
+---
+
+<article class="flex flex-col items-center px-12 gap-6 my-12">
+  <picture class="">
+    <source srcset="assets/home-1.webp" type="image/webp" />
+    <source srcset="assets/home-1.png" type="image/png" />
+    <img
+      src="assets/home-1.png"
+      alt="our work in kitchen"
+      class="rounded-full w-44 h-44"
+    />
+  </picture>
+  <div class="flex items-center gap-3">
+    <div class="w-2 h-8 bg-primary-color"></div>
+    <h2 class="uppercase font-bold text-3xl">{title}</h2>
+  </div>
+  <p class="text-dark-gray leading-[170%] font-sans">
+    {content}
+  </p>
+</article>

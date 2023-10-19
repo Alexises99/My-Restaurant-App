@@ -1,6 +1,25 @@
 ---
+import HomeItem from '../components/HomeItem.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 const pageTitle = 'Home'
 ---
 
-<BaseLayout pageTitle={pageTitle} />
+<BaseLayout pageTitle={pageTitle}>
+  <HomeItem
+    title={t('home.how-work.title')}
+    content={t('home.how-work.body')}
+  />
+  <HomeItem
+    title={t('home.how-work.title')}
+    content={t('home.how-work.body')}
+  />
+</BaseLayout>
