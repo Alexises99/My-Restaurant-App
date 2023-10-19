@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Saria';
+  src: url('/fonts/SairaCondensed-Medium.ttf');
+}
+
+:root {
+  --primary-color: #d73333;
+  --secundary-color: #000;
+  --background-color: #cccccc;
+  --dark-gray: #5a5a5a;
+}
+
+@layer base {
+  html {
+    font-family:
+      'Saria',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      'Open Sans',
+      'Helvetica Neue',
+      sans-serif;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.expanded {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  font-size: 3rem;
+  gap: 3rem;
+  z-index: 1;
+  animation: move 0.5s;
+  transition: background-color 0.5s;
+  transition: all 1s ease-out 0.5s;
+}
+
+.expanded li a:focus {
+  color: var(--secundary-color);
+}
+
+.show {
+  width: 32px;
+  height: 32px;
+  top: 32px;
+  right: 32px;
+  display: block;
+  z-index: 1;
+  position: absolute;
+}
+
+@keyframes move {
+  0% {
+    height: 0vh;
+  }
+  100% {
+    height: 100vh;
+  }
+}
