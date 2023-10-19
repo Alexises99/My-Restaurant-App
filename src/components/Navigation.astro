@@ -4,14 +4,26 @@ import {
   useTranslations,
   useTranslatedPath,
 } from '../i18n/utils'
+import Hamburger from './Hamburger.astro'
+import CrossIcon from './icons/CrossIcon.astro'
+import StarIcon from './icons/StarIcon.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 ---
 
-<nav>
-  <ul>
+<nav
+  class="container mx-auto h-14 bg-primary-color flex justify-between items-center p-3"
+>
+  <div class="flex items-center gap-3">
+    <StarIcon />
+    <span class="mt-1 text-2xl font-bold tracking-wider">My Restaurant</span>
+  </div>
+
+  <ul
+    class="nav-links hidden sm:flex sm:justify-around sm:h-full sm:items-center"
+  >
     <li>
       <a href={translatePath('/')}>{t('nav.home')}</a>
     </li>
@@ -19,4 +31,7 @@ const translatePath = useTranslatedPath(lang)
       <a href={translatePath('/menu')}>{t('nav.menu')}</a>
     </li>
   </ul>
+
+  <CrossIcon />
+  <Hamburger />
 </nav>

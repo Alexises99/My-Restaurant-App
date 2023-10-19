@@ -1,0 +1,21 @@
+---
+import Navigation from './Navigation.astro'
+---
+
+<header>
+  <Navigation />
+  <div class="relative">
+    <picture class="w-full">
+      <source srcset="assets/header.webp" type="image/webp" />
+      <source srcset="assets/header.png" type="image/png" />
+      <img src="assets/header.png" alt="hamburger" class="w-full" />
+    </picture>
+    <h1
+      class="absolute top-[45%] left-[40%] -translate-x-1/2 -translate-y-1/2 text-5xl leading-[110%] font-semibold text-white"
+    >
+      <span class="block">THE BEST</span>
+      <span class="text-primary-color">RESTAURANT</span>
+      <span class="block">IN THE CITY</span>
+    </h1>
+  </div>
+</header>
