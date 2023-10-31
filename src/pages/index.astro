@@ -2,11 +2,8 @@
 import HomeItem from '../components/HomeItem.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Header from '../components/Header.astro'
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from '../i18n/utils'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Carousel from '../components/Carousel/Carousel.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -17,7 +14,7 @@ const pageTitle = 'Home'
 <BaseLayout pageTitle={pageTitle}>
   <Header />
   <section
-    class="flex flex-col gap-6 md:gap-52 container mx-auto my-12 md:mb-28"
+    class="flex flex-col px-6 md:px-0 gap-6 md:gap-52 container mx-auto my-12 md:mb-28"
   >
     <HomeItem
       title={t('home.how-work.title')}
@@ -31,4 +28,10 @@ const pageTitle = 'Home'
       index={2}
     />
   </section>
+  <section class="container mx-auto my-16 px-6 md:px-0">
+    <Carousel />
+  </section>
+  <script>
+    import '../scripts/carousel.ts'
+  </script>
 </BaseLayout>

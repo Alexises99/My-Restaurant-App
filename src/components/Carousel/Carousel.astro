@@ -1,0 +1,22 @@
+---
+import CarouselItem from './CarouselItem.astro'
+---
+
+<div
+  class="slider w-full h-[350px] relative overflow-hidden rounded-2xl lg:h-[520px]"
+>
+  <CarouselItem image="landscape,mountain" />
+  <CarouselItem image="landscape,cars" />
+  <CarouselItem image="landscape,night" />
+  <CarouselItem image="landscape,city" />
+
+  <!-- Control buttons -->
+  <button
+    class="btn-prev absolute w-11 h-11 border-none rounded-full z-10 bg-white active:scale-110 top-1/2 -translate-y-1/2 left-2 flex justify-center items-center"
+    >{'<'}</button
+  >
+  <button
+    class="btn-next absolute w-11 h-11 border-none rounded-full z-10 bg-white active:scale-110 top-1/2 -translate-y-1/2 right-2"
+    >></button
+  >
+</div>

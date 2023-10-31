@@ -1,0 +1,15 @@
+---
+interface Props {
+  image: string
+}
+
+const { image } = Astro.props
+---
+
+<div class="slide w-full h-full absolute transition-all">
+  <img
+    src={`https://source.unsplash.com/random?${image}`}
+    alt=""
+    class="w-full h-full object-cover"
+  />
+</div>
