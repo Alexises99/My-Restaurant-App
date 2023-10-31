@@ -1,21 +1,36 @@
 ---
 import Navigation from './Navigation.astro'
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <header>
   <Navigation />
   <div class="relative">
-    <picture class="w-full">
-      <source srcset="assets/header.webp" type="image/webp" />
-      <source srcset="assets/header.png" type="image/png" />
+    <picture class="">
+      <source srcset="assets/header/header-md.webp" type="image/webp" />
+      <source
+        srcset="assets/header/header-lg.webp"
+        type="image/webp"
+        media="(min-width: 1000px)"
+      />
+      <source srcset="assets/header/header-md.jpg" type="image/jpeg" />
+      <source
+        srcset="assets/header/header-lg.jpg"
+        type="image/jpeg"
+        media="(min-width: 1000px)"
+      />
       <img src="assets/header.png" alt="hamburger" class="w-full" />
     </picture>
     <h1
-      class="absolute top-[45%] left-[40%] -translate-x-1/2 -translate-y-1/2 text-5xl leading-[110%] font-semibold text-white"
+      class="absolute top-[45%] left-[40%] -translate-x-1/2 -translate-y-1/2 text-5xl leading-[110%] font-semibold text-white uppercase"
     >
-      <span class="block">THE BEST</span>
-      <span class="text-primary-color">RESTAURANT</span>
-      <span class="block">IN THE CITY</span>
+      <span class="block">{t('header.title-1')}</span>
+      <span class="text-primary-color">{t('header.title-2')}</span>
+      <span class="block">{t('header.title-3')}</span>
     </h1>
   </div>
 </header>

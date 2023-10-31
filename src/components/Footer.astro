@@ -1,0 +1,31 @@
+---
+import FacebookIcon from '../components/icons/FacebookIcon.astro'
+import InstagramIcon from '../components/icons/InstagramIcon.astro'
+import LinkedinIcon from '../components/icons/LinkedinIcon.astro'
+import MailIcon from '../components/icons/MailIcon.astro'
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<footer class="bg-secundary-color text-white p-16 flex flex-col gap-14">
+  <h3 class="uppercase font-bold leading-[110%] text-4xl">
+    <span>{`${t('footer.title-1')} `}</span>
+    <span class="text-primary-color">{t('footer.title-2')}</span>
+    <span>{` ${t('footer.title-3')}?`}</span>
+  </h3>
+  <div class="flex gap-12">
+    <FacebookIcon />
+    <InstagramIcon />
+    <LinkedinIcon />
+  </div>
+  <a href="mailto:test@support.com" class="flex items-center gap-4 text-lg"
+    ><MailIcon /> yourcompany@domain.com</a
+  >
+  <div class="text-base flex justify-between">
+    <span>{t('footer.privacy-policy')}</span>
+    <span>{t('footer.privacy-policy')}</span>
+  </div>
+</footer>
