@@ -2,26 +2,42 @@
 interface Props {
   title: string
   content: string
+  inverted?: boolean
+  index: number
 }
 
-const { title, content } = Astro.props
+const { title, content, index, inverted = false } = Astro.props
 ---
 
-<article class="flex flex-col items-center px-12 gap-6 my-12">
-  <picture class="">
-    <source srcset="assets/home-1.webp" type="image/webp" />
-    <source srcset="assets/home-1.png" type="image/png" />
+<article
+  class="flex flex-col items-center gap-6 md:flex-row md:gap-16 md:justify-center"
+>
+  <picture class={`md:max-h-[412px] ${inverted ? 'md:order-2' : ''}`}>
+    <source srcset={`assets/home/home-${index}-md.webp`} type="image/webp" />
+    <source
+      srcset={`assets/home/home-${index}-lg.webp`}
+      type="image/webp"
+      media="(min-width: 1000px)"
+    />
+    <source srcset={`assets/home/home-${index}-md.png`} type="image/png" />
+    <source
+      srcset={`assets/home/home-${index}-lg.png`}
+      type="image/png"
+      media="(min-width: 1000px)"
+    />
     <img
-      src="assets/home-1.png"
+      src={`assets/home/home-${index}-lg.png`}
       alt="our work in kitchen"
-      class="rounded-full w-44 h-44"
+      class="max-h-44 aspect-square rounded-full md:max-h-[412px] md:max-w-[500px] md:object-cover md:w-full md:rounded-[6rem]"
     />
   </picture>
-  <div class="flex items-center gap-3">
-    <div class="w-2 h-8 bg-primary-color"></div>
-    <h2 class="uppercase font-bold text-3xl">{title}</h2>
+  <div class="flex flex-col items-center gap-5 md:basis-[40%] md:gap-16">
+    <div class="flex items-center gap-3 md:self-start">
+      <div class="w-2 h-8 bg-primary-color"></div>
+      <h2 class="uppercase font-bold text-3xl">{title}</h2>
+    </div>
+    <p class="text-dark-gray leading-[170%] font-sans md:text-base">
+      {content}
+    </p>
   </div>
-  <p class="text-dark-gray leading-[170%] font-sans">
-    {content}
-  </p>
 </article>

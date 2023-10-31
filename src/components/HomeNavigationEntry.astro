@@ -1,0 +1,16 @@
+---
+interface Props {
+  item: string
+  href: string
+}
+
+const { item, href } = Astro.props
+---
+
+<a
+  class="flex flex-col cursor-pointer items-center justify-center gap-5 font-bold leading-[110%]"
+  href={href}
+>
+  <slot />
+  <h4 class="text-primary-color uppercase text-2xl">{item}</h4>
+</a>

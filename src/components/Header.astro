@@ -2,6 +2,7 @@
 import Navigation from './Navigation.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import HomeNavigation from './HomeNavigation.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -23,14 +24,19 @@ const t = useTranslations(lang)
         type="image/jpeg"
         media="(min-width: 1000px)"
       />
-      <img src="assets/header.png" alt="hamburger" class="w-full" />
+      <img
+        src="assets/header.png"
+        alt="hamburger"
+        class="w-full md:max-h-[37rem] object-cover"
+      />
     </picture>
     <h1
-      class="absolute top-[45%] left-[40%] -translate-x-1/2 -translate-y-1/2 text-5xl leading-[110%] font-semibold text-white uppercase"
+      class="absolute top-[45%] left-[40%] -translate-x-1/2 -translate-y-1/2 text-5xl leading-[110%] font-semibold text-white uppercase md:text-8xl md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:text-9xl lg:object-bottom"
     >
       <span class="block">{t('header.title-1')}</span>
       <span class="text-primary-color">{t('header.title-2')}</span>
       <span class="block">{t('header.title-3')}</span>
     </h1>
   </div>
+  <HomeNavigation />
 </header>

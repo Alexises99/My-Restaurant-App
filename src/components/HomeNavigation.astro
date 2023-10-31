@@ -1,0 +1,16 @@
+---
+import HomeNavigationEntry from './HomeNavigationEntry.astro'
+import HamburgerIcon from './icons/HamburgerIcon.astro'
+import RestaurantIcon from './icons/RestaurantIcon.astro'
+---
+
+<nav
+  class="hidden px-[7.5rem] py-[2.25rem] bg-white w-fit md:flex mx-auto -translate-y-1/2 gap-[7.5rem]"
+>
+  <HomeNavigationEntry item="menu" href="">
+    <HamburgerIcon />
+  </HomeNavigationEntry>
+  <HomeNavigationEntry item="menu" href="">
+    <RestaurantIcon />
+  </HomeNavigationEntry>
+</nav>

@@ -1,6 +1,7 @@
 ---
 import HomeItem from '../components/HomeItem.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/Header.astro'
 import {
   getLangFromUrl,
   useTranslations,
@@ -14,12 +15,20 @@ const pageTitle = 'Home'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <HomeItem
-    title={t('home.how-work.title')}
-    content={t('home.how-work.body')}
-  />
-  <HomeItem
-    title={t('home.how-work.title')}
-    content={t('home.how-work.body')}
-  />
+  <Header />
+  <section
+    class="flex flex-col gap-6 md:gap-52 container mx-auto my-12 md:mb-28"
+  >
+    <HomeItem
+      title={t('home.how-work.title')}
+      content={t('home.how-work.body')}
+      index={1}
+    />
+    <HomeItem
+      title={t('home.ingredients.title')}
+      content={t('home.ingredients.body')}
+      inverted
+      index={2}
+    />
+  </section>
 </BaseLayout>
