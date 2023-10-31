@@ -10,22 +10,29 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<footer class="bg-secundary-color text-white p-16 flex flex-col gap-14">
-  <h3 class="uppercase font-bold leading-[110%] text-4xl">
-    <span>{`${t('footer.title-1')} `}</span>
-    <span class="text-primary-color">{t('footer.title-2')}</span>
-    <span>{` ${t('footer.title-3')}?`}</span>
-  </h3>
-  <div class="flex gap-12">
-    <FacebookIcon />
-    <InstagramIcon />
-    <LinkedinIcon />
-  </div>
-  <a href="mailto:test@support.com" class="flex items-center gap-4 text-lg"
-    ><MailIcon /> yourcompany@domain.com</a
-  >
-  <div class="text-base flex justify-between">
-    <span>{t('footer.privacy-policy')}</span>
-    <span>{t('footer.privacy-policy')}</span>
+<!--TODO Add anchor tags to spans and icons -->
+<footer class="bg-secundary-color">
+  <div class="container mx-auto text-white p-16 flex flex-col gap-14">
+    <div class="flex flex-col gap-14 lg:flex-row lg:justify-between">
+      <h3 class="uppercase font-bold leading-[110%] text-4xl">
+        <span>{`${t('footer.title-1')} `}</span>
+        <span class="text-primary-color">{t('footer.title-2')}</span>
+        <span>{` ${t('footer.title-3')}?`}</span>
+      </h3>
+      <div class="flex gap-12">
+        <FacebookIcon />
+        <InstagramIcon />
+        <LinkedinIcon />
+      </div>
+    </div>
+    <div class="flex flex-col gap-14 lg:flex-row lg:justify-between">
+      <a href="mailto:test@support.com" class="flex items-center gap-4 text-lg"
+        ><MailIcon /> yourcompany@domain.com</a
+      >
+      <div class="text-base flex justify-between lg:gap-14">
+        <span>{t('footer.privacy-policy')}</span>
+        <span>{t('footer.privacy-policy')}</span>
+      </div>
+    </div>
   </div>
 </footer>
